@@ -1,0 +1,355 @@
+<wsdl:definitions xmlns:tns="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL">
+	<wsdl:types>
+		<s:schema targetNamespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL">
+			<s:complexType name="cabecalho">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cDescricao" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodigo" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cIdTrib" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodServMun" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodLC116" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nIdNBS" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nPrecoUnit" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodCateg" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="cadastros">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="intListar" type="tns:intListar"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cabecalho" type="tns:cabecalho"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="descricao" type="tns:descricao"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="impostos" type="tns:impostos"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="info" type="tns:info"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="cadastrosArray">
+				<s:complexContent>
+					<s:restriction base="soapenc:Array">
+						<s:attribute ref="soapenc:arrayType" wsdl:arrayType="tns:cadastros[]"/>
+					</s:restriction>
+				</s:complexContent>
+			</s:complexType>
+			<s:complexType name="intListar">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="descricao">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cDescrCompleta" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="impostos">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nAliqISS" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cRetISS" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nAliqPIS" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cRetPIS" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nAliqCOFINS" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cRetCOFINS" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nAliqCSLL" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cRetCSLL" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nAliqIR" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cRetIR" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nAliqINSS" type="s:decimal"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cRetINSS" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nRedBaseINSS" type="s:decimal"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="info">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="dInc" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="hInc" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="uInc" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="dAlt" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="hAlt" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="uAlt" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cImpAPI" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="inativo" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="intIncluir">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvAssociarRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvAssociarResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cCodStatus" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cDescStatus" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvConsultarRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvConsultarResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="intListar" type="tns:intListar"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cabecalho" type="tns:cabecalho"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="descricao" type="tns:descricao"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="impostos" type="tns:impostos"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="info" type="tns:info"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvEditarRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="intEditar" type="tns:intEditar"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cabecalho" type="tns:cabecalho"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="descricao" type="tns:descricao"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="impostos" type="tns:impostos"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="intEditar">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvEditarResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cCodStatus" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cDescStatus" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvExcluirRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvExcluirResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cCodStatus" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cDescStatus" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvIncluirRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="intIncluir" type="tns:intIncluir"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cabecalho" type="tns:cabecalho"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="descricao" type="tns:descricao"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="impostos" type="tns:impostos"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvIncluirResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cCodStatus" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cDescStatus" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvListarRequest">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="nPagina" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="nRegPorPagina" type="s:integer"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cOrdenarPor" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cOrdemDecrescente" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="dInclusaoInicial" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="dInclusaoFinal" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="dAlteracaoInicial" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="dAlteracaoFinal" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="hInclusaoInicial" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="hInclusaoFinal" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="hAlteracaoInicial" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="hAlteracaoFinal" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cDescricao" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodigo" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="inativo" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvListarResponse">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="nPagina" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="nTotPaginas" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="nRegistros" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="nTotRegistros" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cadastros" type="tns:cadastrosArray"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvUpsertRequest">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="intEditar" type="tns:intEditar"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cabecalho" type="tns:cabecalho"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="descricao" type="tns:descricao"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="impostos" type="tns:impostos"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="srvUpsertResponse">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="cCodIntServ" type="s:string"/>
+					<s:element minOccurs="0" maxOccurs="1" nillable="true" name="nCodServ" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cCodStatus" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="cDescStatus" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:complexType name="omie_fail">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="code" type="s:integer"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="true" name="description" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="false" name="referer" type="s:string"/>
+					<s:element minOccurs="1" maxOccurs="1" nillable="false" name="fatal" type="s:boolean"/>
+				</s:sequence>
+			</s:complexType>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="IncluirCadastroServicoSoapIn">
+		<wsdl:part name="srvIncluirRequest" type="tns:srvIncluirRequest"/>
+	</wsdl:message>
+	<wsdl:message name="IncluirCadastroServicoSoapOut">
+		<wsdl:part name="srvIncluirResponse" type="tns:srvIncluirResponse"/>
+	</wsdl:message>
+	<wsdl:message name="AlterarCadastroServicoSoapIn">
+		<wsdl:part name="srvEditarRequest" type="tns:srvEditarRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AlterarCadastroServicoSoapOut">
+		<wsdl:part name="srvEditarResponse" type="tns:srvEditarResponse"/>
+	</wsdl:message>
+	<wsdl:message name="UpsertCadastroServicoSoapIn">
+		<wsdl:part name="srvUpsertRequest" type="tns:srvUpsertRequest"/>
+	</wsdl:message>
+	<wsdl:message name="UpsertCadastroServicoSoapOut">
+		<wsdl:part name="srvUpsertResponse" type="tns:srvUpsertResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ExcluirCadastroServicoSoapIn">
+		<wsdl:part name="srvExcluirRequest" type="tns:srvExcluirRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ExcluirCadastroServicoSoapOut">
+		<wsdl:part name="srvExcluirResponse" type="tns:srvExcluirResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultarCadastroServicoSoapIn">
+		<wsdl:part name="srvConsultarRequest" type="tns:srvConsultarRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultarCadastroServicoSoapOut">
+		<wsdl:part name="srvConsultarResponse" type="tns:srvConsultarResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ListarCadastroServicoSoapIn">
+		<wsdl:part name="srvListarRequest" type="tns:srvListarRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ListarCadastroServicoSoapOut">
+		<wsdl:part name="srvListarResponse" type="tns:srvListarResponse"/>
+	</wsdl:message>
+	<wsdl:message name="AssociarCodIntServicoSoapIn">
+		<wsdl:part name="srvAssociarRequest" type="tns:srvAssociarRequest"/>
+	</wsdl:message>
+	<wsdl:message name="AssociarCodIntServicoSoapOut">
+		<wsdl:part name="srvAssociarResponse" type="tns:srvAssociarResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="ServicosSoap">
+		<wsdl:operation name="IncluirCadastroServico">
+			<wsdl:input message="tns:IncluirCadastroServicoSoapIn"/>
+			<wsdl:output message="tns:IncluirCadastroServicoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AlterarCadastroServico">
+			<wsdl:input message="tns:AlterarCadastroServicoSoapIn"/>
+			<wsdl:output message="tns:AlterarCadastroServicoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpsertCadastroServico">
+			<wsdl:input message="tns:UpsertCadastroServicoSoapIn"/>
+			<wsdl:output message="tns:UpsertCadastroServicoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ExcluirCadastroServico">
+			<wsdl:input message="tns:ExcluirCadastroServicoSoapIn"/>
+			<wsdl:output message="tns:ExcluirCadastroServicoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarCadastroServico">
+			<wsdl:input message="tns:ConsultarCadastroServicoSoapIn"/>
+			<wsdl:output message="tns:ConsultarCadastroServicoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ListarCadastroServico">
+			<wsdl:input message="tns:ListarCadastroServicoSoapIn"/>
+			<wsdl:output message="tns:ListarCadastroServicoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AssociarCodIntServico">
+			<wsdl:input message="tns:AssociarCodIntServicoSoapIn"/>
+			<wsdl:output message="tns:AssociarCodIntServicoSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ServicosSoap" type="tns:ServicosSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+		<wsdl:operation name="IncluirCadastroServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLIncluirCadastroServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvIncluirRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvIncluirResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AlterarCadastroServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLAlterarCadastroServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvEditarRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvEditarResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="UpsertCadastroServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLUpsertCadastroServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvUpsertRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvUpsertResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ExcluirCadastroServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLExcluirCadastroServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvExcluirRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvExcluirResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarCadastroServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLConsultarCadastroServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvConsultarRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvConsultarResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ListarCadastroServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLListarCadastroServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvListarRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvListarResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AssociarCodIntServico">
+			<soap:operation soapAction="http://app.omie.com.br/api/v1/servicos/servico/?WSDLAssociarCodIntServico"/>
+			<wsdl:input>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvAssociarRequest"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://app.omie.com.br/api/v1/servicos/servico/?WSDL" parts="srvAssociarResponse"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="Servicos">
+		<wsdl:port name="ServicosSoap" binding="tns:ServicosSoap">
+			<soap:address location="http://app.omie.com.br/api/v1/servicos/servico/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
